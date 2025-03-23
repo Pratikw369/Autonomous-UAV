@@ -6,7 +6,7 @@ import os
 
 def generate_launch_description():
     world_file = os.path.join(
-        "/home/ros-gazebo/drone_ws/src/martian_drone/worlds", "FinalDrone22.sdf"
+        "/home/ros-gazebo/anav_ws/src/martian_drone/worlds", "FinalDrone.sdf"
     )
 
 
@@ -68,7 +68,13 @@ def generate_launch_description():
         # Run the drone_control.py script
         Node(
             package='martian_drone',
-            executable='drone_controll',
+            executable='drone_control',
+            output='screen'
+        ),
+
+        Node(
+            package='martian_drone',
+            executable='read_depth',
             output='screen'
         )
     ])
